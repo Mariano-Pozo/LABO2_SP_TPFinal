@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase que contiene nombre y contraseña.
+    /// </summary>
     public class Usuario
     {
         private string nombre;

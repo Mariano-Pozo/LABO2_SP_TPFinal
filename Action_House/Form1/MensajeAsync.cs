@@ -1,8 +1,14 @@
 ﻿namespace Form1
 {
 
+    /// <summary>
+    /// Clase que contiene un método para mostrar un mensaje de confirmación de cierre de la aplicación de forma asíncrona.
+    /// </summary>
     public class MensajeAsync
     {
+        /// <summary>
+        /// Muestra un mensaje de confirmación asíncrono para cerrar la aplicación.
+        /// </summary>
         public static void ConfirmacionCierre()
         {
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();

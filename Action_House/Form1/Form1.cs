@@ -33,6 +33,7 @@ namespace Form1
             textBox_password.Clear();
         }
 
+        
         private void button_login_Click(object sender, EventArgs e)
         {
             string usuario = textBox_username.Text;

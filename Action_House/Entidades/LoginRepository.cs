@@ -5,12 +5,18 @@ namespace Entidades
 {
     public class LoginRepository
     {
+        /// <summary>
+        /// Método estático que verifica las credenciales del usuario para el inicio de sesión.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <param name="pass">Contraseña del usuario.</param>
+        /// <returns>True si las credenciales son válidas; de lo contrario, False.</returns>
         public static bool Login(string usuario, string pass)
         {
             string connectionString = "Data Source=DESKTOP-8A3M14H; Initial Catalog=tp2;Integrated Security=True";
             //string connectionString = "Server=DESKTOP-8A3M14H;Initial Catalog=tp2;User ID=sa;Password=arbolitos;TrustServerCertificate=true";
             string consulta = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Password"; // Consulta parametrizada "@"
-            
+
             int count = 0;
 
             try
@@ -35,6 +41,14 @@ namespace Entidades
             return count > 0; // Si count es mayor que 0, las credenciales son válidas
         }
 
+        /// <summary>
+        /// Método privado que obtiene la cantidad de usuarios que coinciden con el usuario y la contraseña dados.
+        /// </summary>
+        /// <param name="conexion">Objeto SqlConnection para la conexión a la base de datos.</param>
+        /// <param name="consulta">Consulta SQL parametrizada para verificar las credenciales.</param>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <param name="pass">Contraseña del usuario.</param>
+        /// <returns>El número de usuarios que coinciden con las credenciales dadas.</returns>
         private static int ObtenerCantidadUsuarios(SqlConnection conexion, string consulta, string usuario, string pass)
         {
             int count = 0;
